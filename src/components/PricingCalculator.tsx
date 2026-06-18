@@ -181,7 +181,7 @@ export default function PricingCalculator() {
       `Mohon%20jadwalkan%20sesi%20konsultasi%20gratis%20untuk%20mendiskusikan%20lebih%20lanjut.%20Terima%20kasih!`;
 
     // Opens WhatsApp Web or Universal app on client
-    window.open(`https://api.whatsapp.com/send?phone=628123456789&text=${message}`, "_blank", "noopener,noreferrer");
+    window.open(`https://api.whatsapp.com/send?phone=628978902194&text=${message}`, "_blank", "noopener,noreferrer");
   };
 
   const currentTheme = colorMap[themeColor] || colorMap.emerald;

@@ -61,7 +61,7 @@ export default function App() {
       `*Kebutuhan/Fitur%20Khusus:*%2520${encodeURIComponent(description || "Konsultasi umum mengenai layout dan alur produk")}${newline}${newline}` +
       `Mohon%20info%20jadwal%20dan%20tata%20cara%20proses%20pembuatannya.%20Terima%20kasih!`;
 
-    window.open(`https://api.whatsapp.com/send?phone=628123456789&text=${message}`, "_blank", "noopener,noreferrer");
+    window.open(`https://api.whatsapp.com/send?phone=628978902194&text=${message}`, "_blank", "noopener,noreferrer");
     setIsConsultationOpen(false);
   };
 

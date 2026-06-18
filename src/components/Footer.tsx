@@ -110,15 +110,11 @@ export default function Footer({ onOpenConsultation }: FooterProps) {
             <ul className="space-y-3.5 text-xs sm:text-sm">
               <li className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors">
                 <MapPin className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                <span>Gedung Cyber, lt. 5, Kuningan Barat, Jakarta Selatan, DKI Jakarta 12710</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-                <a href="mailto:halo@situspro.co.id" className="underline hover:text-indigo-400">halo@situspro.co.id</a>
+                <span>Sulawesi Barat, Polewali Mandar</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                 <Phone className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-                <a href="tel:+628123456789" className="hover:text-indigo-400">+62 812-3456-7890</a>
+                <a href="tel:+628978902194" className="hover:text-indigo-400">+62 897-8902-194</a>
               </li>
             </ul>
           </div>
