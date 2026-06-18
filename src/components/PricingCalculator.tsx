@@ -187,18 +187,18 @@ export default function PricingCalculator() {
   const currentTheme = colorMap[themeColor] || colorMap.emerald;
 
   return (
-    <section id="kalkulator-custom" className="py-20 bg-slate-50/20 scroll-mt-20">
+    <section id="kalkulator-custom" className="py-20 bg-slate-50/20 dark:bg-gray-900/50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-700 bg-indigo-50 py-1 px-3 rounded-full">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/40 py-1 px-3 rounded-md">
             Alat Kalkulator Pintar
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-medium text-slate-900 dark:text-white leading-tight">
             Kalkulator & Live Preview Desain Custom
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed text-center">
+          <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed text-center">
             Pilihlah model spesifikasi, warna tema, jumlah halaman, dan modul fitur yang Anda butuhkan. Lihat perkiraan biaya transparan dan saksikan rancangan layout website dummy Anda terupdate secara live di panel sebelah kanan!
           </p>
         </div>
@@ -207,11 +207,11 @@ export default function PricingCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           
           {/* Options Controller Column (Left) */}
-          <div className="lg:col-span-7 space-y-8 bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl shadow-sm">
+          <div className="lg:col-span-7 space-y-8 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 p-6 sm:p-8 rounded-md  -sm">
             
             {/* Input Brand Name */}
             <div className="space-y-3">
-              <label htmlFor="business-name-input" className="block text-sm font-bold text-slate-800 tracking-wide uppercase">
+              <label htmlFor="business-name-input" className="block text-sm font-bold text-slate-800 dark:text-slate-200 tracking-wide uppercase">
                 1. Nama Brand / Bisnis Anda
               </label>
               <input
@@ -221,13 +221,13 @@ export default function PricingCalculator() {
                 onChange={(e) => setBusinessName(e.target.value || "Bisnis Saya")}
                 placeholder="Contoh: Kopi Seduh Senja, Sinar Logistik, Toko Zahra..."
                 maxLength={40}
-                className="w-full text-base border border-slate-205 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all block text-slate-900 font-medium"
+                className="w-full text-base border border-slate-205 dark:border-gray-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all block text-slate-900 dark:text-gray-100 dark:bg-gray-700 font-medium"
               />
             </div>
 
             {/* Select Web Model Preset */}
             <div className="space-y-3">
-              <label htmlFor="category-select" className="block text-sm font-bold text-slate-800 tracking-wide uppercase">
+              <label htmlFor="category-select" className="block text-sm font-bold text-slate-800 dark:text-slate-200 tracking-wide uppercase">
                 2. Pilih Kategori / Model Website
               </label>
               <div id="category-select" className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -241,10 +241,10 @@ export default function PricingCalculator() {
                   <button
                     key={item.id}
                     onClick={() => setCategory(item.id)}
-                    className={`py-3 px-3 rounded-full border text-xs sm:text-sm font-bold transition-all text-center block w-full whitespace-nowrap cursor-pointer ${
+                    className={`py-3 px-3 rounded-md border text-xs sm:text-sm font-bold transition-all text-center block w-full whitespace-nowrap cursor-pointer ${
                       category === item.id
-                        ? "bg-indigo-700 hover:bg-indigo-800 text-white border-indigo-700 shadow-md shadow-indigo-100"
-                        : "bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700"
+                        ? "bg-indigo-700 hover:bg-indigo-800 text-white border-indigo-700    -indigo-100"
+                        : "bg-slate-50 dark:bg-gray-700 border-slate-200 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-gray-600 text-slate-700 dark:text-slate-300"
                     }`}
                   >
                     {item.label}
@@ -255,7 +255,7 @@ export default function PricingCalculator() {
 
             {/* Select Colors Theme */}
             <div className="space-y-3">
-              <label className="block text-sm font-bold text-slate-800 tracking-wide uppercase">
+              <label className="block text-sm font-bold text-slate-800 dark:text-slate-200 tracking-wide uppercase">
                 3. Pilih Karakter Warna Tema Anda
               </label>
               <div className="flex flex-wrap gap-4 items-center">
@@ -269,13 +269,13 @@ export default function PricingCalculator() {
                   <button
                     key={color.id}
                     onClick={() => setThemeColor(color.id)}
-                    className={`flex items-center space-x-2 py-1.5 px-3 rounded-full border text-xs font-bold transition-all ${
+                    className={`flex items-center space-x-2 py-1.5 px-3 rounded-md border text-xs font-bold transition-all ${
                       themeColor === color.id
-                        ? "bg-slate-900 text-white border-slate-900 shadow-sm"
-                        : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
+                        ? "bg-slate-900 dark:bg-gray-600 text-white border-slate-900 dark:border-gray-600  -sm"
+                        : "bg-white dark:bg-gray-700 border-slate-200 dark:border-gray-600 hover:bg-slate-50 dark:hover:bg-gray-600 text-slate-700 dark:text-slate-300"
                     }`}
                   >
-                    <span className={`w-3.5 h-3.5 rounded-full ${color.hex}`} />
+                    <span className={`w-3.5 h-3.5 rounded-md ${color.hex}`} />
                     <span>{color.label}</span>
                   </button>
                 ))}
@@ -285,31 +285,31 @@ export default function PricingCalculator() {
             {/* Page Count Counter Widget */}
             <div className="space-y-3 select-none">
               <div className="flex items-center justify-between">
-                <label className="block text-sm font-bold text-slate-800 tracking-wide uppercase">
+                <label className="block text-sm font-bold text-slate-800 dark:text-slate-200 tracking-wide uppercase">
                   4. Estimasi Jumlah Halaman
                 </label>
                 <span className="text-xs font-bold text-slate-500">
                   Bonus: 1 Halaman Beranda sudah ter-include
                 </span>
               </div>
-              <div className="flex items-center justify-between bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+              <div className="flex items-center justify-between bg-slate-50 dark:bg-gray-700 border border-slate-200 dark:border-gray-600 p-4 rounded-md">
                 <div className="space-y-0.5">
-                  <p className="text-sm font-bold text-slate-900">{pageCount} Halaman Total</p>
+                  <p className="text-sm font-bold text-slate-900 dark:text-white">{pageCount} Halaman Total</p>
                   <p className="text-xs text-slate-500">Menyediakan Beranda, Layanan, Kontak, dan {pageCount - 1 > 0 ? `${pageCount - 1} detail halaman tambahan` : "halaman dasar"}</p>
                 </div>
-                <div className="flex items-center space-x-3 bg-white border border-slate-200 rounded-full p-1 shadow-inner">
+                <div className="flex items-center space-x-3 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-600 rounded-md p-1  -inner">
                   <button
                     onClick={() => setPageCount(Math.max(1, pageCount - 1))}
                     disabled={pageCount <= 1}
-                    className="p-2 text-slate-600 hover:text-indigo-700 disabled:opacity-40 transition-colors cursor-pointer"
+                    className="p-2 text-slate-600 dark:text-slate-300 hover:text-indigo-700 disabled:opacity-40 transition-colors cursor-pointer"
                   >
                     <Minus className="w-4 h-4 stroke-[3px]" />
                   </button>
-                  <span className="font-extrabold text-base px-2 text-slate-900">{pageCount}</span>
+                  <span className="font-medium text-base px-2 text-slate-900 dark:text-white">{pageCount}</span>
                   <button
                     onClick={() => setPageCount(Math.min(25, pageCount + 1))}
                     disabled={pageCount >= 25}
-                    className="p-2 text-slate-600 hover:text-indigo-700 disabled:opacity-40 transition-colors cursor-pointer"
+                    className="p-2 text-slate-600 dark:text-slate-300 hover:text-indigo-700 disabled:opacity-40 transition-colors cursor-pointer"
                   >
                     <Plus className="w-4 h-4 stroke-[3px]" />
                   </button>
@@ -319,7 +319,7 @@ export default function PricingCalculator() {
 
             {/* Select Interlocking Features */}
             <div className="space-y-4">
-              <label className="block text-sm font-bold text-slate-800 tracking-wide uppercase">
+              <label className="block text-sm font-bold text-slate-800 dark:text-slate-200 tracking-wide uppercase">
                 5. Pilih Fitur Modular Tambahan (Klik untuk Aktifkan)
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -329,22 +329,22 @@ export default function PricingCalculator() {
                     <div
                       key={feat.id}
                       onClick={() => toggleFeature(feat.id)}
-                      className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-start space-x-3 select-none ${
+                      className={`p-4 rounded-md border transition-all cursor-pointer flex items-start space-x-3 select-none ${
                         isChecked
-                          ? "bg-indigo-50/50 border-indigo-500 shadow-sm"
-                          : "bg-white border-slate-200 hover:border-slate-350"
+                          ? "bg-indigo-50/50 dark:bg-indigo-950/30 border-indigo-500  -sm"
+                          : "bg-white dark:bg-gray-700 border-slate-200 dark:border-gray-600 hover:border-slate-350"
                       }`}
                     >
-                      <div className={`p-2 rounded-xl mt-0.5 ${isChecked ? "bg-indigo-700 text-white" : "bg-slate-100 text-slate-500"}`}>
+                      <div className={`p-2 rounded-md mt-0.5 ${isChecked ? "bg-indigo-700 text-white" : "bg-slate-100 dark:bg-gray-600 text-slate-500 dark:text-slate-300"}`}>
                         {getFeatureIcon(feat.iconName)}
                       </div>
                       <div className="flex-1 space-y-1">
                         <div className="flex items-center justify-between">
-                          <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                          <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">
                             {feat.name}
                           </p>
                           {isChecked && (
-                            <span className="bg-indigo-100 text-indigo-700 p-0.5 rounded-full">
+                            <span className="bg-indigo-100 text-indigo-700 p-0.5 rounded-md">
                               <Check className="w-3.5 h-3.5 text-indigo-750" />
                             </span>
                           )}
@@ -368,24 +368,24 @@ export default function PricingCalculator() {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
             
             {/* Live Interactive Frame Preview */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-5 shadow-sm space-y-4">
+            <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-md p-5  -sm space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-700 flex items-center">
-                  <span className="w-2.5 h-2.5 bg-indigo-600 rounded-full inline-block mr-2 animate-ping" />
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center">
+                  <span className="w-2.5 h-2.5 bg-indigo-600 rounded-md inline-block mr-2 animate-ping" />
                   Live Preview Mockup
                 </span>
-                <span className="bg-indigo-50 text-indigo-700 text-[10px] uppercase tracking-wider font-extrabold px-2.5 py-1 rounded-full">
+                <span className="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 text-[10px] uppercase tracking-wider font-medium px-2.5 py-1 rounded-md">
                   {pageCount} Halaman
                 </span>
               </div>
 
               {/* Fake Mobile/Tablet Shell Emulator */}
-              <div className="border-4 border-slate-900 bg-slate-50 rounded-2xl overflow-hidden aspect-[9/13] shadow-inner relative flex flex-col">
+              <div className="border-4 border-slate-900 bg-slate-50 rounded-md overflow-hidden aspect-[9/13]  -inner relative flex flex-col">
                 {/* Visual Header bar */}
                 <div className="bg-slate-900 text-white/50 text-[9px] px-4 py-1.5 flex justify-between items-center z-10">
                   <span className="font-semibold text-white font-mono">09:41 AM</span>
                   <div className="w-16 h-3.5 bg-black rounded-lg flex items-center justify-center">
-                    <span className="w-1 h-1 bg-white/20 rounded-full" />
+                    <span className="w-1 h-1 bg-white/20 rounded-md" />
                   </div>
                   <span className="font-mono">LTE ✓</span>
                 </div>
@@ -412,7 +412,7 @@ export default function PricingCalculator() {
                     <p className={`text-[9px] uppercase font-bold tracking-wider ${currentTheme.text}`}>
                       Selamat Datang Pro
                     </p>
-                    <h5 className="text-sm font-extrabold text-gray-950 leading-tight">
+                    <h5 className="text-sm font-medium text-gray-950 leading-tight">
                       Solusi Terbaik Hubungi {businessName}
                     </h5>
                     <p className="text-[9px] text-gray-500 leading-relaxed px-2">
@@ -422,7 +422,7 @@ export default function PricingCalculator() {
                         ? "Daftarkan diri Anda sekarang sebelum slot kehabisan. Dapatkan diskon terbatas."
                         : "Kami berkomitmen melayani kebutuhan harian Anda dengan layanan ramah dan harga bersaing."}
                     </p>
-                    <button className={`inline-block text-[8px] font-bold text-white py-1.5 px-4 rounded ${currentTheme.primary} shadow-sm`}>
+                    <button className={`inline-block text-[8px] font-bold text-white py-1.5 px-4 rounded ${currentTheme.primary}  -sm`}>
                       Hubungi Kami
                     </button>
                   </div>
@@ -437,7 +437,7 @@ export default function PricingCalculator() {
                       <div className="grid grid-cols-2 gap-2">
                         <div className="border border-gray-100 p-1.5 rounded-lg space-y-1.5 bg-slate-25 hover:border-indigo-250 transition-all">
                           <div className="h-12 bg-gray-100 rounded-md overflow-hidden relative">
-                            <span className="absolute top-1 left-1 bg-indigo-600 text-white text-[7px] font-extrabold px-1 rounded">Diskon</span>
+                            <span className="absolute top-1 left-1 bg-indigo-600 text-white text-[7px] font-medium px-1 rounded">Diskon</span>
                           </div>
                           <div>
                             <p className="font-bold text-[9px] text-gray-900">Produk Best Seller 1</p>
@@ -496,7 +496,7 @@ export default function PricingCalculator() {
                       {/* Fake map drawing */}
                       <div className="h-16 bg-blue-50 border border-blue-100 rounded-lg relative overflow-hidden flex items-center justify-center">
                         <div className="absolute inset-0 bg-dotted-pattern opacity-30" />
-                        <div className="h-3 w-16 bg-white/70 border border-gray-200 text-[6px] font-bold flex items-center justify-center rounded shadow-sm z-10 space-x-1">
+                        <div className="h-3 w-16 bg-white/70 border border-gray-200 text-[6px] font-bold flex items-center justify-center rounded  -sm z-10 space-x-1">
                           <MapPin className="w-1.5 h-1.5 text-rose-500 fill-rose-500" />
                           <span>Pin Lokasi</span>
                         </div>
@@ -535,7 +535,7 @@ export default function PricingCalculator() {
 
                   {/* Floating WhatsApp Widget */}
                   {selectedFeatures.includes("whatsapp") && (
-                    <div className="absolute bottom-3 right-3 bg-indigo-650 text-white p-1.5 rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer z-35 animate-bounce-slow">
+                    <div className="absolute bottom-3 right-3 bg-indigo-650 text-white p-1.5 rounded-md  -lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer z-35 animate-bounce-slow">
                       <MessageCircle className="w-4 h-4 fill-indigo-650 text-white" />
                     </div>
                   )}
@@ -545,8 +545,8 @@ export default function PricingCalculator() {
             </div>
 
             {/* Receipt Summary Calculation Breakdown */}
-            <div className="bg-slate-900 border border-slate-800 text-white rounded-3xl p-6 sm:p-8 space-y-5 shadow-lg relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-950 rounded-full mix-blend-multiply opacity-30 filter blur-xl pointer-events-none" />
+            <div className="bg-slate-900 border border-slate-800 text-white rounded-md p-6 sm:p-8 space-y-5  -lg relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-950 rounded-md mix-blend-multiply opacity-30 filter blur-xl pointer-events-none" />
               
               <h4 className="text-sm font-bold uppercase tracking-wider text-indigo-300 border-b border-slate-800 pb-3">
                 Ringkasan Estimasi Biaya
@@ -583,7 +583,7 @@ export default function PricingCalculator() {
               {/* Submit CTA */}
               <button
                 onClick={sendToWhatsApp}
-                className="w-full text-center bg-indigo-700 hover:bg-indigo-650 text-white font-extrabold uppercase text-xs py-3.5 px-6 rounded-full shadow-lg shadow-indigo-950/25 transition-all flex items-center justify-center space-x-2"
+                className="w-full text-center bg-indigo-700 hover:bg-indigo-650 text-white font-medium uppercase text-xs py-3.5 px-6 rounded-md  -lg  -indigo-950/25 transition-all flex items-center justify-center space-x-2"
               >
                 <MessageCircle className="w-5 h-5 fill-white text-indigo-700 stroke-[2.5px]" />
                 <span>Konsultasikan via WhatsApp Kami</span>

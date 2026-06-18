@@ -66,41 +66,41 @@ export default function KenapaWebsite() {
   ];
 
   return (
-    <section id="mengapa-website" className="py-20 bg-slate-50 border-y border-slate-200">
+    <section id="mengapa-website" className="py-20 bg-slate-50 dark:bg-gray-900 border-y border-slate-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/40 px-3 py-1 rounded-md">
             Eksistensi Digital
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-medium text-slate-900 dark:text-white leading-tight">
             Kenapa Bisnis Anda Butuh Website?
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
+          <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
             Di era digital, pelanggan sering mencari informasi melalui internet sebelum membeli produk atau menggunakan jasa. Website membantu bisnis Anda terlihat lebih kredibel dan mudah dijangkau kapan saja.
           </p>
         </div>
 
         {/* Tab Selection */}
         <div className="flex justify-center mt-10">
-          <div className="inline-flex bg-white p-1 rounded-full border border-slate-200 shadow-sm">
+          <div className="inline-flex bg-white dark:bg-gray-800 p-1 rounded-md border border-slate-200 dark:border-gray-700  -sm">
             <button
               onClick={() => setActiveTab("urgensi")}
-              className={`py-2 px-6 rounded-full text-sm font-bold transition-all ${
+              className={`py-2 px-6 rounded-md text-sm font-bold transition-all ${
                 activeTab === "urgensi"
-                  ? "bg-indigo-700 text-white shadow-md shadow-indigo-100"
-                  : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
+                  ? "bg-indigo-700 text-white    -indigo-100"
+                  : "text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-gray-700"
               }`}
             >
               Urgensi Website Bisnis
             </button>
             <button
               onClick={() => setActiveTab("keunggulan")}
-              className={`py-2 px-6 rounded-full text-sm font-bold transition-all ${
+              className={`py-2 px-6 rounded-md text-sm font-bold transition-all ${
                 activeTab === "keunggulan"
-                  ? "bg-indigo-700 text-white shadow-md shadow-indigo-100"
-                  : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
+                  ? "bg-indigo-700 text-white    -indigo-100"
+                  : "text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-gray-700"
               }`}
             >
               Keunggulan Layanan Kami
@@ -115,14 +115,14 @@ export default function KenapaWebsite() {
               {urgensiItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4 hover:border-indigo-300 hover:shadow-md transition-all duration-300 animate-fadeIn"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-md border border-slate-200 dark:border-gray-700  -sm flex items-start space-x-4 hover:border-indigo-300 hover:  transition-all duration-300 animate-fadeIn"
                 >
-                  <div className="p-3 bg-slate-50 rounded-xl flex-shrink-0">
+                  <div className="p-3 bg-slate-50 dark:bg-gray-700 rounded-md flex-shrink-0">
                     {item.icon}
                   </div>
                   <div className="space-y-1.5 bg-transparent">
-                    <h3 className="font-bold text-lg text-slate-900">{item.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white">{item.title}</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -132,15 +132,15 @@ export default function KenapaWebsite() {
               {keunggulanItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-indigo-300 hover:shadow-md transition-all duration-300 animate-fadeIn"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-md border border-slate-200 dark:border-gray-700  -sm flex flex-col justify-between hover:border-indigo-300 hover:  transition-all duration-300 animate-fadeIn"
                 >
                   <div className="space-y-4">
-                    <div className="p-3 bg-slate-50 rounded-xl inline-block">
+                    <div className="p-3 bg-slate-50 dark:bg-gray-700 rounded-md inline-block">
                       {item.icon}
                     </div>
                     <div className="space-y-2">
-                      <h4 className="font-bold text-base text-slate-900">{item.title}</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+                      <h4 className="font-bold text-base text-slate-900 dark:text-white">{item.title}</h4>
+                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                   <div className="pt-4 flex items-center text-xs font-bold text-indigo-700">
@@ -153,9 +153,9 @@ export default function KenapaWebsite() {
         </div>
 
         {/* Custom Visual Callout */}
-        <div className="mt-12 bg-slate-900 text-white rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-xl">
+        <div className="mt-12 bg-slate-900 dark:bg-gray-800 text-white rounded-md p-6 sm:p-10 relative overflow-hidden  ">
           {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-900 rounded-full mix-blend-multiply opacity-20 filter blur-2xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-900 rounded-md mix-blend-multiply opacity-20 filter blur-2xl pointer-events-none" />
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left max-w-xl">
               <h4 className="text-xl sm:text-2xl font-bold">Gabungkan Profil, Layanan, & Kontak Dalam Satu Tempat</h4>
@@ -168,7 +168,7 @@ export default function KenapaWebsite() {
                 const cal = document.getElementById("kalkulator-custom");
                 if (cal) cal.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-white text-slate-900 hover:bg-indigo-50 py-3.5 px-6 rounded-xl text-sm font-bold shadow-md shrink-0 transition-colors"
+              className="bg-white text-slate-900 hover:bg-indigo-50 py-3.5 px-6 rounded-md text-sm font-bold   shrink-0 transition-colors"
             >
               Coba Kalkulator Desain Preview
             </button>

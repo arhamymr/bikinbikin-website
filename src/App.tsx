@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { X, MessageCircle, Send, CheckCircle2, Phone, Briefcase } from "lucide-react";
 
+import { ThemeProvider } from "./ThemeContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import KenapaWebsite from "./components/KenapaWebsite";
@@ -65,7 +66,8 @@ export default function App() {
   };
 
   return (
-    <div id="website-agency-app" className="min-h-screen bg-white text-gray-800 antialiased selection:bg-indigo-600 selection:text-white">
+    <ThemeProvider>
+    <div id="website-agency-app" className="min-h-screen bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 antialiased selection:bg-indigo-600 selection:text-white">
       {/* Premium Header navigation */}
       <Header 
         onOpenConsultation={handleOpenConsultation}
@@ -103,10 +105,10 @@ export default function App() {
         <section id="bottom-cta-banner" className="py-20 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 font-sans text-white text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-900/40 via-transparent to-transparent pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 relative z-10 space-y-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-indigo-300 bg-white/10 py-1.5 px-4 rounded-full">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-300 bg-white/10 py-1.5 px-4 rounded-md">
               Mulai Langkah Anda
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
               Siap Membuat Website Bisnis Anda Sekarang?
             </h2>
             <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -115,14 +117,14 @@ export default function App() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
               <button
                 onClick={handleOpenConsultation}
-                className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold text-white bg-indigo-700 hover:bg-indigo-650 py-3.5 px-8 rounded-full shadow-lg shadow-indigo-950/50 transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold text-white bg-indigo-700 hover:bg-indigo-650 py-3.5 px-8 rounded-md  -lg  -indigo-950/50 transition-all cursor-pointer"
               >
                 <Phone className="w-4 h-4 mr-1.5" />
                 Hubungi Kami via WhatsApp
               </button>
               <button
                 onClick={handleNavigateToCalculator}
-                className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold text-white border border-indigo-800 hover:border-indigo-600 hover:bg-white/10 py-3.5 px-8 rounded-full transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold text-white border border-indigo-800 hover:border-indigo-600 hover:bg-white/10 py-3.5 px-8 rounded-md transition-all cursor-pointer"
               >
                 Pakai Kalkulator Preview
               </button>
@@ -138,25 +140,25 @@ export default function App() {
       {/* Consultation Slide-Over drawer Drawer/Modal overlay */}
       {isConsultationOpen && (
         <div id="consultation-modal-container" className="fixed inset-0 z-50 overflow-hidden" role="dialog" aria-modal="true">
-          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity" onClick={handleCloseConsultation} />
+          <div className="absolute inset-0 bg-slate-950/60 dark:bg-black/70 backdrop-blur-sm transition-opacity" onClick={handleCloseConsultation} />
           
           <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-            <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
+            <div className="w-screen max-w-md bg-white dark:bg-gray-900  -2xl flex flex-col justify-between">
               
               {/* Header section of consultation overlay */}
-              <div className="p-6 border-b border-slate-150 flex items-center justify-between">
+              <div className="p-6 border-b border-slate-150 dark:border-gray-700 flex items-center justify-between">
                 <div className="flex items-center space-x-2.5">
-                  <div className="p-2 bg-indigo-100 rounded-xl text-indigo-700">
+                  <div className="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-md text-indigo-700 dark:text-indigo-300">
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-gray-900 text-base">Konsultasi Desain Gratis</h4>
+                    <h4 className="font-medium text-gray-900 dark:text-gray-100 text-base">Konsultasi Desain Gratis</h4>
                     <p className="text-[10px] text-slate-400 uppercase font-bold tracking-widest">SitusPro Studio</p>
                   </div>
                 </div>
                 <button
                   onClick={handleCloseConsultation}
-                  className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 focus:outline-none cursor-pointer"
+                  className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none cursor-pointer"
                 >
                   <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
@@ -166,16 +168,16 @@ export default function App() {
               <form onSubmit={handleConsultationSubmit} className="flex-1 overflow-y-auto p-6 space-y-6">
                 
                 {/* Visual Intro box */}
-                <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-2xl space-y-1.5 select-none">
-                  <p className="text-xs font-bold text-indigo-950">Diskusikan Ide Hebat Anda Bersama Kami</p>
-                  <p className="text-[11px] text-indigo-750 leading-relaxed font-medium">
+                <div className="bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-800 p-4 rounded-md space-y-1.5 select-none">
+                  <p className="text-xs font-bold text-indigo-950 dark:text-indigo-200">Diskusikan Ide Hebat Anda Bersama Kami</p>
+                  <p className="text-[11px] text-indigo-750 dark:text-indigo-300 leading-relaxed font-medium">
                     Sebutkan jenis bisnis Anda serta range budget perkiraan. Tim profesional kami akan membantu menyusun rincian struktur halaman sitemap secara kustom & optimal.
                   </p>
                 </div>
 
                 {/* Input 1 name */}
                 <div className="space-y-2">
-                  <label htmlFor="modal-name-input" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label htmlFor="modal-name-input" className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                     Nama Bisnis / Merek Anda
                   </label>
                   <input
@@ -186,13 +188,13 @@ export default function App() {
                     onChange={handleInputChange}
                     placeholder="Contoh: Kopi Seduh Senja"
                     required
-                    className="w-full border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium"
+                    className="w-full border border-slate-200 dark:border-gray-600 rounded-md py-2.5 px-4 text-sm text-slate-900 dark:text-gray-100 dark:bg-gray-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium"
                   />
                 </div>
 
                 {/* Input 2 category */}
                 <div className="space-y-2">
-                  <label htmlFor="modal-category-select" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label htmlFor="modal-category-select" className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                     Kategori Bisnis / Profil Jasa
                   </label>
                   <select
@@ -200,7 +202,7 @@ export default function App() {
                     name="category"
                     value={consultationForm.category}
                     onChange={handleInputChange}
-                    className="w-full border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium bg-white"
+                    className="w-full border border-slate-200 dark:border-gray-600 rounded-md py-2.5 px-4 text-sm text-slate-900 dark:text-gray-100 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium bg-white dark:bg-gray-800"
                   >
                     <option value="UMKM / Toko Kelontong">UMKM / Toko Kelontong</option>
                     <option value="Restoran / Cafe">Restoran / Cafe / FnB</option>
@@ -214,7 +216,7 @@ export default function App() {
 
                 {/* Input 3 Budget range slider / select */}
                 <div className="space-y-2">
-                  <label htmlFor="modal-budget-select" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label htmlFor="modal-budget-select" className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                     Perkiraan Range Budget Pembuatan
                   </label>
                   <select
@@ -222,7 +224,7 @@ export default function App() {
                     name="budget"
                     value={consultationForm.budget}
                     onChange={handleInputChange}
-                    className="w-full border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium bg-white"
+                    className="w-full border border-slate-200 dark:border-gray-600 rounded-md py-2.5 px-4 text-sm text-slate-900 dark:text-gray-100 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium bg-white dark:bg-gray-800"
                   >
                     <option value="Di bawah Rp 1.500.000">Di bawah Rp 1.500.000 (Sederhana)</option>
                     <option value="Rp 1.500.000 - Rp 3.500.000">Rp 1.500.000 - Rp 3.500.000 (Starter/Business)</option>
@@ -233,7 +235,7 @@ export default function App() {
 
                 {/* Input 4 Description target */}
                 <div className="space-y-2">
-                  <label htmlFor="modal-desc-textarea" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label htmlFor="modal-desc-textarea" className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                     Keinginan Spesial / Deskripsi Tambahan
                   </label>
                   <textarea
@@ -243,7 +245,7 @@ export default function App() {
                     value={consultationForm.description}
                     onChange={handleInputChange}
                     placeholder="Contoh: Ingin ada peta interaktif rute klinik kami, tombol link admin, plus slide foto menu makanan..."
-                    className="w-full border border-slate-200 rounded-xl py-2.5 px-4 text-sm text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium resize-none"
+                    className="w-full border border-slate-200 dark:border-gray-600 rounded-md py-2.5 px-4 text-sm text-slate-900 dark:text-gray-100 dark:bg-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent font-medium resize-none"
                   />
                 </div>
 
@@ -251,7 +253,7 @@ export default function App() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center text-sm font-bold text-white bg-indigo-700 hover:bg-indigo-650 py-3.5 px-4 rounded-full shadow-lg shadow-indigo-100 transition-colors cursor-pointer"
+                    className="w-full inline-flex items-center justify-center text-sm font-bold text-white bg-indigo-700 hover:bg-indigo-650 py-3.5 px-4 rounded-md  -lg  -indigo-100 transition-colors cursor-pointer"
                   >
                     <Send className="w-4 h-4 mr-1.5" />
                     Kirim Form via WhatsApp
@@ -261,8 +263,8 @@ export default function App() {
               </form>
 
               {/* Bottom footer note of consultation overlay */}
-              <div className="p-6 bg-slate-50 border-t border-slate-150 text-center select-none">
-                <p className="text-[11px] text-slate-500">
+              <div className="p-6 bg-slate-50 dark:bg-gray-800/50 border-t border-slate-150 dark:border-gray-700 text-center select-none">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
                   Data Anda tersimpan aman. Dengan mengirimkan form ini, Anda akan diarahkan langsung menuju layanan CS Whatsapp kami secara instan & responsif.
                 </p>
               </div>
@@ -273,5 +275,6 @@ export default function App() {
       )}
 
     </div>
+    </ThemeProvider>
   );
 }

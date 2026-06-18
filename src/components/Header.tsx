@@ -4,7 +4,8 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { Globe, Menu, X, MessageSquare, PhoneCall } from "lucide-react";
+import { Globe, Menu, X, MessageSquare, PhoneCall, Sun, Moon } from "lucide-react";
+import { useTheme } from "../ThemeContext";
 
 interface HeaderProps {
   onOpenConsultation: () => void;
@@ -14,6 +15,7 @@ interface HeaderProps {
 export default function Header({ onOpenConsultation, onNavigateToCalculator }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +51,7 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
       id="main-nav-header"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-3"
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md  -sm border-b border-gray-100 dark:border-gray-800 py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -60,15 +62,9 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center space-x-2 cursor-pointer group"
           >
-            <div className="p-2.5 bg-indigo-700 rounded-xl text-white shadow-md shadow-indigo-200 transition-all group-hover:scale-105 duration-200">
-              <Globe className="w-5 h-5 animate-pulse" />
-            </div>
             <div>
-              <span className="font-extrabold text-xl tracking-tight text-slate-900">
-                Situs<span className="text-indigo-700">Pro</span>
-              </span>
-              <span className="block text-[10px] font-medium tracking-widest uppercase text-slate-400">
-                Studio Web
+              <span className="font-semibold text-md tracking-tight text-slate-900 dark:text-white border p-2 border-2 dark:border-gray-600">
+                BikinBikin Web
               </span>
             </div>
           </div>
@@ -77,43 +73,43 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("mengapa-website")}
-              className="text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors"
             >
               Urgensi
             </button>
             <button
               onClick={() => scrollToSection("layanan-utama")}
-              className="text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors"
             >
               Layanan
             </button>
             <button
               onClick={() => scrollToSection("kalkulator-custom")}
-              className="text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors"
             >
               Kalkulator Harga
             </button>
             <button
               onClick={() => scrollToSection("paket-website")}
-              className="text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors"
             >
               Paket
             </button>
             <button
               onClick={() => scrollToSection("alur-kerja")}
-              className="text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors"
             >
               Alur Kerja
             </button>
             <button
               onClick={() => scrollToSection("portofolio-kami")}
-              className="text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors"
             >
               Portofolio
             </button>
             <button
               onClick={() => scrollToSection("faq-section")}
-              className="text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors"
             >
               FAQ
             </button>
@@ -122,15 +118,22 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <button
+              onClick={toggleTheme}
+              className="p-2 rounded-md text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+            <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-50 border border-slate-200 py-2 px-4 rounded-xl hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 py-2 px-4 rounded-md hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors"
             >
               <PhoneCall className="w-4 h-4 mr-1.5 text-indigo-700" />
               Konsultasi Gratis
             </button>
             <button
               onClick={onNavigateToCalculator}
-              className="inline-flex items-center text-sm font-semibold text-white bg-indigo-700 py-2.5 px-5 rounded-full hover:bg-indigo-800 transition-all shadow-lg shadow-indigo-100 hover:shadow-indigo-200"
+              className="inline-flex items-center text-sm font-semibold text-white bg-indigo-700 py-2.5 px-5 rounded-md hover:bg-indigo-800 transition-all  -lg  -indigo-100 hover: -indigo-200"
             >
               <MessageSquare className="w-4 h-4 mr-1.5" />
               Lihat Desain & Paket
@@ -138,11 +141,18 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex md:hidden items-center space-x-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-indigo-700 hover:bg-slate-50 dark:hover:bg-gray-800 focus:outline-none"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
             <button
               id="mobile-menu-btn"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 hover:text-indigo-700 hover:bg-slate-50 focus:outline-none"
+              className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-indigo-700 hover:bg-slate-50 dark:hover:bg-gray-800 focus:outline-none"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -156,47 +166,47 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div id="mobile-drawer" className="md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 py-5 transition-all duration-300">
+        <div id="mobile-drawer" className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 py-5 transition-all duration-300">
           <div className="px-4 space-y-4 flex flex-col">
             <button
               onClick={() => scrollToSection("mengapa-website")}
-              className="text-left font-medium text-slate-700 hover:text-indigo-700 py-2 border-b border-slate-50"
+              className="text-left font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-400 py-2 border-b border-slate-50 dark:border-gray-800"
             >
               Urgensi Website
             </button>
             <button
               onClick={() => scrollToSection("layanan-utama")}
-              className="text-left font-medium text-slate-700 hover:text-indigo-700 py-2 border-b border-slate-50"
+              className="text-left font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-400 py-2 border-b border-slate-50 dark:border-gray-800"
             >
               Layanan & Fitur
             </button>
             <button
               onClick={() => scrollToSection("kalkulator-custom")}
-              className="text-left font-medium text-slate-700 hover:text-indigo-700 py-2 border-b border-slate-50"
+              className="text-left font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-400 py-2 border-b border-slate-50 dark:border-gray-800"
             >
               Kalkulator Harga & Desain Preview
             </button>
             <button
               onClick={() => scrollToSection("paket-website")}
-              className="text-left font-medium text-slate-700 hover:text-indigo-700 py-2 border-b border-slate-50"
+              className="text-left font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-400 py-2 border-b border-slate-50 dark:border-gray-800"
             >
               Daftar Paket Harga
             </button>
             <button
               onClick={() => scrollToSection("alur-kerja")}
-              className="text-left font-medium text-slate-700 hover:text-indigo-700 py-2 border-b border-slate-50"
+              className="text-left font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-400 py-2 border-b border-slate-50 dark:border-gray-800"
             >
               Alur Kerja Kami
             </button>
             <button
               onClick={() => scrollToSection("portofolio-kami")}
-              className="text-left font-medium text-slate-700 hover:text-indigo-700 py-2 border-b border-slate-50"
+              className="text-left font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-400 py-2 border-b border-slate-50 dark:border-gray-800"
             >
               Portofolio Kami
             </button>
             <button
               onClick={() => scrollToSection("faq-section")}
-              className="text-left font-medium text-slate-700 hover:text-indigo-700 py-2 border-b border-slate-50"
+              className="text-left font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-400 py-2 border-b border-slate-50 dark:border-gray-800"
             >
               F.A.Q
             </button>
@@ -206,7 +216,7 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
                   setIsMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full inline-flex items-center justify-center text-sm font-semibold text-slate-700 bg-slate-50 border border-slate-200 py-2.5 px-4 rounded-xl hover:bg-slate-100 transition-colors"
+                className="w-full inline-flex items-center justify-center text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 py-2.5 px-4 rounded-md hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors"
               >
                 <PhoneCall className="w-4 h-4 mr-1.5 text-indigo-700" />
                 Konsultasi Gratis
@@ -216,7 +226,7 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
                   setIsMobileMenuOpen(false);
                   scrollToSection("kalkulator-custom");
                 }}
-                className="w-full inline-flex items-center justify-center text-sm font-semibold text-white bg-indigo-700 py-2.5 px-4 rounded-full hover:bg-indigo-800 transition-all shadow-md shadow-indigo-100"
+                className="w-full inline-flex items-center justify-center text-sm font-semibold text-white bg-indigo-700 py-2.5 px-4 rounded-md hover:bg-indigo-800 transition-all    -indigo-100"
               >
                 <MessageSquare className="w-4 h-4 mr-1.5" />
                 Desain & Estimasi Harga

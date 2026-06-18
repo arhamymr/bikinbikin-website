@@ -18,7 +18,7 @@ export default function Footer({ onOpenConsultation }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 text-gray-400 pt-16 pb-8 border-t border-slate-900">
+    <footer className="bg-slate-950 dark:bg-black text-gray-400 pt-16 pb-8 border-t border-slate-900 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Upper footer grids */}
@@ -27,10 +27,10 @@ export default function Footer({ onOpenConsultation }: FooterProps) {
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="p-2 bg-indigo-700 rounded-xl text-white shadow-md">
+              <div className="p-2 bg-indigo-700 rounded-md text-white  ">
                 <Globe className="w-5 h-5 animate-pulse" />
               </div>
-              <span className="font-extrabold text-xl tracking-tight text-white">
+              <span className="font-medium text-xl tracking-tight text-white">
                 Situs<span className="text-indigo-455">Pro</span>
               </span>
             </div>
@@ -133,7 +133,7 @@ export default function Footer({ onOpenConsultation }: FooterProps) {
           
           <button
             onClick={handleScrollToTop}
-            className="p-3 bg-slate-900 border border-slate-800 text-gray-400 hover:text-white rounded-xl hover:bg-slate-800 transition-colors cursor-pointer flex items-center space-x-1"
+            className="p-3 bg-slate-900 border border-slate-800 text-gray-400 hover:text-white rounded-md hover:bg-slate-800 transition-colors cursor-pointer flex items-center space-x-1"
           >
             <span className="text-[10px] font-bold uppercase tracking-widest pl-1">Ke Atas</span>
             <ArrowUp className="w-3.5 h-3.5 stroke-[3.5px] text-indigo-500" />
