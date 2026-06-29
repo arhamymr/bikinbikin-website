@@ -109,7 +109,7 @@ export default function Portfolio() {
                       cal.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="w-full inline-flex items-center justify-center text-xs font-bold text-black bg-zinc-100 border border-zinc-200 py-2.5 px-4 rounded-md hover:bg-zinc-200 transition-all cursor-pointer"
+                  className="w-full inline-flex items-center justify-center text-xs font-bold text-black bg-zinc-100 border border-zinc-200 py-2.5 px-4 rounded-md hover:bg-zinc-200 transition-all active-press cursor-pointer"
                 >
                   <span>Gunakan Pola Layanan Ini</span>
                   <ArrowUpRight className="w-3.5 h-3.5 ml-1" />

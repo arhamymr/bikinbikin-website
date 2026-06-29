@@ -32,12 +32,12 @@ export default function Accordion({ items, activeId, onToggle, className = "" }:
             {/* Accordion Trigger header */}
             <button
               onClick={() => onToggle(item.id)}
-              className="w-full flex items-center justify-between p-5 text-left focus:outline-none focus:ring-0 cursor-pointer select-none"
+              className="w-full flex items-center justify-between p-5 text-left focus:outline-none focus:ring-0 cursor-pointer select-none active-press-lg"
             >
               <div className="flex items-center space-x-3.5 pr-4">
                 <Question
                   className={`w-5 h-5 flex-shrink-0 ${
-                    isOpen ? "text-black" : "text-slate-400"
+                    isOpen ? "text-black" : "text-slate-450"
                   }`}
                 />
                 <span className="font-bold text-sm sm:text-base text-slate-950">
@@ -61,7 +61,7 @@ export default function Accordion({ items, activeId, onToggle, className = "" }:
 
             {/* Accordion Content Body */}
             <div
-              className={`transition-all duration-300 ease-in-out ${
+              className={`transition-all duration-200 ease-out ${
                 isOpen
                   ? "max-h-[500px] border-t border-slate-100 opacity-100"
                   : "max-h-0 opacity-0 pointer-events-none"

@@ -42,13 +42,13 @@ export default function Footer({ onOpenConsultation }: FooterProps) {
 
             {/* Social Icons */}
             <div className="flex space-x-3 pt-2">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white hover:border-zinc-750 transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white hover:border-zinc-750 transition-colors active-press" aria-label="Instagram">
                 <InstagramLogo className="w-4 h-4" />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white hover:border-zinc-750 transition-colors" aria-label="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white hover:border-zinc-750 transition-colors active-press" aria-label="Facebook">
                 <FacebookLogo className="w-4 h-4" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white hover:border-zinc-750 transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white hover:border-zinc-750 transition-colors active-press" aria-label="LinkedIn">
                 <LinkedinLogo className="w-4 h-4" />
               </a>
             </div>
@@ -130,7 +130,7 @@ export default function Footer({ onOpenConsultation }: FooterProps) {
           
           <button
             onClick={handleScrollToTop}
-            className="p-3 bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white rounded-md hover:bg-zinc-800 transition-colors cursor-pointer flex items-center space-x-1"
+            className="p-3 bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white rounded-md hover:bg-zinc-800 transition-colors active-press cursor-pointer flex items-center space-x-1"
           >
             <span className="text-[10px] font-bold uppercase tracking-widest pl-1">Ke Atas</span>
             <ArrowUp className="w-3.5 h-3.5 text-white" weight="bold" />

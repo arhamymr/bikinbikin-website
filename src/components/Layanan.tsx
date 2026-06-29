@@ -54,7 +54,7 @@ export default function Layanan({ onNavigateToCalculator }: LayananProps) {
               <button
                 key={service.id}
                 onClick={() => setSelectedService(service.id)}
-                className={`p-4 rounded-md border text-center flex flex-col items-center justify-center space-y-3 transition-all cursor-pointer ${
+                className={`p-4 rounded-md border text-center flex flex-col items-center justify-center space-y-3 transition-all active-press cursor-pointer ${
                   isActive
                     ? "bg-black border-black text-white"
                     : "bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700"
@@ -108,7 +108,7 @@ export default function Layanan({ onNavigateToCalculator }: LayananProps) {
             <div className="pt-8">
               <button
                 onClick={onNavigateToCalculator}
-                className="inline-flex items-center text-sm font-bold text-white bg-black hover:bg-zinc-900 py-3.5 px-6 rounded-md transition-all cursor-pointer"
+                className="inline-flex items-center text-sm font-bold text-white bg-black hover:bg-zinc-900 py-3.5 px-6 rounded-md transition-all active-press cursor-pointer"
               >
                 Gunakan Kalkulator Custom
                 <ArrowRight className="w-4 h-4 ml-2" />

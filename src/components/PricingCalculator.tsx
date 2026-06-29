@@ -231,7 +231,7 @@ export default function PricingCalculator() {
                   <button
                     key={item.id}
                     onClick={() => setCategory(item.id)}
-                    className={`py-3 px-3 rounded-md border text-xs sm:text-sm font-bold transition-all text-center block w-full whitespace-nowrap cursor-pointer ${
+                    className={`py-3 px-3 rounded-md border text-xs sm:text-sm font-bold transition-all text-center block w-full whitespace-nowrap active-press cursor-pointer ${
                       category === item.id
                         ? "bg-black text-white border-black"
                         : "bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700"
@@ -259,7 +259,7 @@ export default function PricingCalculator() {
                   <button
                     key={color.id}
                     onClick={() => setThemeColor(color.id)}
-                    className={`flex items-center space-x-2 py-1.5 px-3 rounded-md border text-xs font-bold transition-all cursor-pointer ${
+                    className={`flex items-center space-x-2 py-1.5 px-3 rounded-md border text-xs font-bold transition-all active-press cursor-pointer ${
                       themeColor === color.id
                         ? "bg-slate-900 text-white border-slate-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
@@ -285,20 +285,20 @@ export default function PricingCalculator() {
               <div className="flex items-center justify-between bg-slate-50 border border-slate-200 p-4 rounded-md">
                 <div className="space-y-0.5">
                   <p className="text-sm font-bold text-slate-900">{pageCount} Halaman Total</p>
-                  <p className="text-xs text-slate-500">Menyediakan Beranda, Layanan, Kontak, dan {pageCount - 1 > 0 ? `${pageCount - 1} detail halaman tambahan` : "halaman dasar"}</p>
+                  <p className="text-xs text-slate-550">Menyediakan Beranda, Layanan, Kontak, dan {pageCount - 1 > 0 ? `${pageCount - 1} detail halaman tambahan` : "halaman dasar"}</p>
                 </div>
                 <div className="flex items-center space-x-3 bg-white border border-slate-200 rounded-md p-1">
                   <button
                     onClick={() => setPageCount(Math.max(1, pageCount - 1))}
                     disabled={pageCount <= 1}
-                    className="p-2 text-slate-650 hover:text-black disabled:opacity-40 transition-colors cursor-pointer"
+                    className="p-2 text-slate-650 hover:text-black disabled:opacity-40 transition-colors active-press-sm cursor-pointer"
                   >
                     <Minus className="w-4 h-4" weight="bold" />
                   </button>
                   <span className="font-medium text-base px-2 text-slate-900">{pageCount}</span>
                   <button
                     onClick={() => setPageCount(pageCount + 1)}
-                    className="p-2 text-slate-650 hover:text-black disabled:opacity-40 transition-colors cursor-pointer"
+                    className="p-2 text-slate-650 hover:text-black disabled:opacity-40 transition-colors active-press-sm cursor-pointer"
                   >
                     <Plus className="w-4 h-4" weight="bold" />
                   </button>
@@ -318,7 +318,7 @@ export default function PricingCalculator() {
                     <div
                       key={feat.id}
                       onClick={() => toggleFeature(feat.id)}
-                      className={`p-4 rounded-md border flex items-start space-x-3 transition-all cursor-pointer select-none ${
+                      className={`p-4 rounded-md border flex items-start space-x-3 transition-all active-press-lg cursor-pointer select-none ${
                         isChecked
                           ? "bg-zinc-50 border-black"
                           : "bg-white border-slate-200 hover:border-slate-350"
@@ -407,20 +407,24 @@ export default function PricingCalculator() {
                         ? "Daftarkan diri Anda sekarang sebelum slot kehabisan. Dapatkan diskon terbatas."
                         : "Kami berkomitmen melayani kebutuhan harian Anda dengan layanan ramah dan harga bersaing."}
                     </p>
-                    <button className={`inline-block text-[8px] font-bold text-white py-1.5 px-4 rounded ${currentTheme.primary}`}>
+                    <button className={`inline-block text-[8px] font-bold text-white py-1.5 px-4 rounded active-press ${currentTheme.primary}`}>
                       Hubungi Kami
                     </button>
                   </div>
 
                   {/* Feature Element Mock 1: Catalog */}
-                  {selectedFeatures.includes("catalog") && (
-                    <div className="p-3.5 space-y-2.5 bg-white border-b border-gray-100">
+                  <div className={`transition-all duration-300 ease-out overflow-hidden ${
+                    selectedFeatures.includes("catalog")
+                      ? "max-h-[300px] opacity-100 border-b border-gray-100"
+                      : "max-h-0 opacity-0 border-b-0 pointer-events-none"
+                  }`}>
+                    <div className="p-3.5 space-y-2.5 bg-white">
                       <div className="flex justify-between items-center">
                         <span className="font-bold text-gray-950 text-xs">Katalog Produk</span>
                         <span className={`text-[8px] font-bold ${currentTheme.text}`}>Lihat Semua &rarr;</span>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
-                        <div className="border border-gray-100 p-1.5 rounded-lg space-y-1.5 bg-zinc-50 hover:border-zinc-300 transition-all">
+                        <div className="border border-gray-100 p-1.5 rounded-lg space-y-1.5 bg-zinc-50 hover:border-zinc-300 transition-all cursor-pointer">
                           <div className="h-12 bg-gray-250 rounded-md overflow-hidden relative">
                             <span className="absolute top-1 left-1 bg-black text-white text-[7px] font-medium px-1 rounded">Diskon</span>
                           </div>
@@ -438,48 +442,60 @@ export default function PricingCalculator() {
                         </div>
                       </div>
                     </div>
-                  )}
+                  </div>
 
                   {/* Feature Element Mock 2: Booking Scheduler System */}
-                  {selectedFeatures.includes("booking") && (
-                    <div className="p-3.5 space-y-2 bg-zinc-50 border-b border-gray-100">
+                  <div className={`transition-all duration-300 ease-out overflow-hidden ${
+                    selectedFeatures.includes("booking")
+                      ? "max-h-[300px] opacity-100 border-b border-gray-100"
+                      : "max-h-0 opacity-0 border-b-0 pointer-events-none"
+                  }`}>
+                    <div className="p-3.5 space-y-2 bg-zinc-50">
                       <span className="font-bold text-gray-950 text-xs block">Formulir Reservasi</span>
                       <p className="text-[8px] text-gray-400">Silakan tentukan slot janji temu Anda secara digital:</p>
                       <div className="space-y-1.5 pt-1.5">
-                        <div className="h-6 bg-white border border-gray-200 rounded px-2 flex items-center justify-between text-[8px] text-gray-650">
+                        <div className="h-6 bg-white border border-gray-200 rounded px-2 flex items-center justify-between text-[8px] text-gray-650 cursor-pointer">
                           <span>📅 Pilih Tanggal Booking</span>
                           <span>▼</span>
                         </div>
-                        <div className="h-6 bg-white border border-gray-200 rounded px-2 flex items-center justify-between text-[8px] text-gray-655">
+                        <div className="h-6 bg-white border border-gray-200 rounded px-2 flex items-center justify-between text-[8px] text-gray-655 cursor-pointer">
                           <span>⏰ Pilih Jam Aktif Dokter/Layanan</span>
                           <span>▼</span>
                         </div>
-                        <button className={`w-full text-center py-1.5 text-[8px] text-white font-bold rounded ${currentTheme.primary}`}>
+                        <button className={`w-full text-center py-1.5 text-[8px] text-white font-bold rounded active-press-sm ${currentTheme.primary}`}>
                           Konfirmasi Reservasi ✓
                         </button>
                       </div>
                     </div>
-                  )}
+                  </div>
 
                   {/* Feature Element Mock 3: Shopping Cart Indicator */}
-                  {selectedFeatures.includes("cart-checkout") && (
-                    <div className="p-3 bg-zinc-50 border-b border-gray-100 flex items-center justify-between text-[9px]">
+                  <div className={`transition-all duration-300 ease-out overflow-hidden ${
+                    selectedFeatures.includes("cart-checkout")
+                      ? "max-h-[300px] opacity-100 border-b border-gray-100"
+                      : "max-h-0 opacity-0 border-b-0 pointer-events-none"
+                  }`}>
+                    <div className="p-3 bg-zinc-50 flex items-center justify-between text-[9px]">
                       <div className="flex items-center space-x-1.5 text-slate-900 font-bold">
                         <ShoppingCart className="w-3.5 h-3.5 text-black" />
                         <span>Keranjang Belanja Aktif (1)</span>
                       </div>
-                      <span className="bg-black text-white font-bold px-2 py-0.5 rounded text-[8px]">
+                      <span className="bg-black text-white font-bold px-2 py-0.5 rounded text-[8px] active-press-sm cursor-pointer">
                         Checkout Rp 120k
                       </span>
                     </div>
-                  )}
+                  </div>
 
                   {/* Feature Element Mock 4: Google Maps integration container */}
-                  {selectedFeatures.includes("maps") && (
-                    <div className="p-3.5 space-y-2 bg-white border-b border-gray-100">
+                  <div className={`transition-all duration-300 ease-out overflow-hidden ${
+                    selectedFeatures.includes("maps")
+                      ? "max-h-[300px] opacity-100 border-b border-gray-100"
+                      : "max-h-0 opacity-0 border-b-0 pointer-events-none"
+                  }`}>
+                    <div className="p-3.5 space-y-2 bg-white">
                       <span className="font-bold text-gray-950 text-xs block">Lokasi Google Maps</span>
                       <div className="h-16 bg-slate-50 border border-zinc-200 rounded-lg relative overflow-hidden flex items-center justify-center">
-                        <div className="h-3 w-16 bg-white/90 border border-gray-200 text-[6px] font-bold flex items-center justify-center rounded z-10 space-x-1">
+                        <div className="h-3 w-16 bg-white/90 border border-gray-200 text-[6px] font-bold flex items-center justify-center rounded z-10 space-x-1 cursor-pointer">
                           <MapPin className="w-1.5 h-1.5 text-black" />
                           <span>Pin Lokasi</span>
                         </div>
@@ -487,10 +503,14 @@ export default function PricingCalculator() {
                         <div className="absolute top-0 bottom-0 left-1/3 w-0.5 bg-gray-250" />
                       </div>
                     </div>
-                  )}
+                  </div>
 
                   {/* Feature Element Mock 5: Contact General Leads Form */}
-                  {selectedFeatures.includes("contact-form") && (
+                  <div className={`transition-all duration-300 ease-out overflow-hidden ${
+                    selectedFeatures.includes("contact-form")
+                      ? "max-h-[300px] opacity-100"
+                      : "max-h-0 opacity-0 pointer-events-none"
+                  }`}>
                     <div className="p-3.5 space-y-2 bg-zinc-50">
                       <span className="font-bold text-gray-950 text-xs block">Kirim Masukan</span>
                       <div className="space-y-1.5">
@@ -500,12 +520,12 @@ export default function PricingCalculator() {
                         <div className="h-10 bg-white border border-gray-250 rounded p-2 text-[8px] text-gray-400">
                           Tulis deskripsi request pesan...
                         </div>
-                        <button className="w-full text-center py-1 text-[8px] font-bold text-gray-600 bg-gray-205 rounded">
+                        <button className="w-full text-center py-1 text-[8px] font-bold text-gray-600 bg-gray-205 rounded active-press-sm">
                           Kirim Pesan
                         </button>
                       </div>
                     </div>
-                  )}
+                  </div>
 
                   {/* Simple simulated footer */}
                   <div className="p-3 text-center text-[8px] text-gray-405 border-t border-gray-150 bg-white">
@@ -517,7 +537,7 @@ export default function PricingCalculator() {
 
                   {/* Floating WhatsApp Widget */}
                   {selectedFeatures.includes("whatsapp") && (
-                    <div className="absolute bottom-3 right-3 bg-black text-white p-1.5 rounded-md flex items-center justify-center cursor-pointer z-35">
+                    <div className="absolute bottom-3 right-3 bg-black text-white p-1.5 rounded-md flex items-center justify-center cursor-pointer z-35 active-press">
                       <ChatCircle className="w-4 h-4 text-white" weight="fill" />
                     </div>
                   )}
@@ -564,7 +584,7 @@ export default function PricingCalculator() {
               {/* Submit CTA - White solid button, no shadow */}
               <button
                 onClick={sendToWhatsApp}
-                className="w-full text-center bg-white hover:bg-zinc-200 text-black font-bold uppercase text-xs py-3.5 px-6 rounded-md transition-all flex items-center justify-center space-x-2 cursor-pointer"
+                className="w-full text-center bg-white hover:bg-zinc-200 text-black font-bold uppercase text-xs py-3.5 px-6 rounded-md transition-all flex items-center justify-center space-x-2 active-press cursor-pointer"
               >
                 <ChatCircle className="w-5 h-5 text-black" />
                 <span>Konsultasikan via WhatsApp Kami</span>

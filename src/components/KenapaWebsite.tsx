@@ -152,7 +152,7 @@ export default function KenapaWebsite() {
                 const cal = document.getElementById("kalkulator-custom");
                 if (cal) cal.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-white text-slate-900 hover:bg-zinc-100 py-3.5 px-6 rounded-md text-sm font-bold shrink-0 transition-colors cursor-pointer"
+              className="bg-white text-slate-900 hover:bg-zinc-100 py-3.5 px-6 rounded-md text-sm font-bold shrink-0 transition-colors active-press cursor-pointer"
             >
               Coba Kalkulator Desain Preview
             </button>

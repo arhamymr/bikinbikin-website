@@ -33,7 +33,7 @@ export default function Tabs({
           <button
             key={tab.id}
             onClick={() => onChange(tab.id)}
-            className={`py-2 px-5 rounded-md text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
+            className={`py-2 px-5 rounded-md text-xs sm:text-sm font-bold whitespace-nowrap transition-all active-press cursor-pointer ${
               activeTab === tab.id
                 ? "bg-black text-white"
                 : "bg-slate-50 border border-slate-200 hover:bg-slate-100 text-slate-600 hover:text-slate-950"
@@ -54,7 +54,7 @@ export default function Tabs({
           <button
             key={tab.id}
             onClick={() => onChange(tab.id)}
-            className={`py-2 px-6 rounded-md text-sm font-bold transition-all ${
+            className={`py-2 px-6 rounded-md text-sm font-bold transition-all active-press cursor-pointer ${
               activeTab === tab.id
                 ? "bg-black text-white"
                 : "text-slate-605 hover:text-slate-950 hover:bg-slate-50"

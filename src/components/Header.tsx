@@ -72,43 +72,43 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("mengapa-website")}
-              className="text-sm font-medium text-slate-600 hover:text-black transition-colors cursor-pointer"
+              className="text-sm font-medium text-slate-600 hover:text-black transition-colors active-press-sm cursor-pointer"
             >
               Urgensi
             </button>
             <button
               onClick={() => scrollToSection("layanan-utama")}
-              className="text-sm font-medium text-slate-600 hover:text-black transition-colors cursor-pointer"
+              className="text-sm font-medium text-slate-600 hover:text-black transition-colors active-press-sm cursor-pointer"
             >
               Layanan
             </button>
             <button
               onClick={() => scrollToSection("kalkulator-custom")}
-              className="text-sm font-medium text-slate-600 hover:text-black transition-colors cursor-pointer"
+              className="text-sm font-medium text-slate-600 hover:text-black transition-colors active-press-sm cursor-pointer"
             >
               Kalkulator Harga
             </button>
             <button
               onClick={() => scrollToSection("paket-website")}
-              className="text-sm font-medium text-slate-600 hover:text-black transition-colors cursor-pointer"
+              className="text-sm font-medium text-slate-600 hover:text-black transition-colors active-press-sm cursor-pointer"
             >
               Paket
             </button>
             <button
               onClick={() => scrollToSection("alur-kerja")}
-              className="text-sm font-medium text-slate-600 hover:text-black transition-colors cursor-pointer"
+              className="text-sm font-medium text-slate-600 hover:text-black transition-colors active-press-sm cursor-pointer"
             >
               Alur Kerja
             </button>
             <button
               onClick={() => scrollToSection("portofolio-kami")}
-              className="text-sm font-medium text-slate-600 hover:text-black transition-colors cursor-pointer"
+              className="text-sm font-medium text-slate-600 hover:text-black transition-colors active-press-sm cursor-pointer"
             >
               Portofolio
             </button>
             <button
               onClick={() => scrollToSection("faq-section")}
-              className="text-sm font-medium text-slate-600 hover:text-black transition-colors cursor-pointer"
+              className="text-sm font-medium text-slate-600 hover:text-black transition-colors active-press-sm cursor-pointer"
             >
               FAQ
             </button>
@@ -118,14 +118,14 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
           <div className="hidden lg:flex items-center space-x-3">
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-50 border border-slate-200 py-2 px-4 rounded-md hover:bg-slate-100 hover:text-black transition-colors cursor-pointer"
+              className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-50 border border-slate-200 py-2 px-4 rounded-md hover:bg-slate-100 hover:text-black transition-colors active-press cursor-pointer"
             >
               <PhoneCall className="w-4 h-4 mr-1.5 text-black" />
               Konsultasi Gratis
             </button>
             <button
               onClick={onNavigateToCalculator}
-              className="inline-flex items-center text-sm font-semibold text-white bg-black py-2.5 px-5 rounded-md hover:bg-zinc-900 transition-all"
+              className="inline-flex items-center text-sm font-semibold text-white bg-black py-2.5 px-5 rounded-md hover:bg-zinc-900 transition-all active-press cursor-pointer"
             >
               <Chat className="w-4 h-4 mr-1.5" />
               Lihat Desain & Paket
@@ -137,7 +137,7 @@ export default function Header({ onOpenConsultation, onNavigateToCalculator }: H
             <button
               id="mobile-menu-btn"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 hover:text-black hover:bg-slate-50 focus:outline-none cursor-pointer"
+              className="p-2 rounded-lg text-slate-600 hover:text-black hover:bg-slate-50 focus:outline-none active-press cursor-pointer"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />

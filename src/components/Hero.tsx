@@ -72,14 +72,14 @@ export default function Hero({ onOpenConsultation, onNavigateToCalculator }: Her
               <button
                 onClick={onOpenConsultation}
                 id="hero-free-consultation"
-                className="w-full sm:w-auto inline-flex items-center justify-center text-base font-bold text-white bg-black hover:bg-zinc-900 py-4 px-8 rounded-md transition-all duration-200 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-base font-bold text-white bg-black hover:bg-zinc-900 py-4 px-8 rounded-md transition-all duration-200 active-press cursor-pointer"
               >
                 Konsultasi Gratis
               </button>
               <button
                 onClick={() => scrollToSection("paket-website")}
                 id="hero-view-packages"
-                className="w-full sm:w-auto inline-flex items-center justify-center text-base font-bold text-slate-700 bg-white border border-zinc-200 hover:bg-slate-50 py-4 px-8 rounded-md transition-all duration-200 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center text-base font-bold text-slate-700 bg-white border border-zinc-200 hover:bg-slate-50 py-4 px-8 rounded-md transition-all duration-200 active-press cursor-pointer"
               >
                 Lihat Paket Website
                 <ArrowRight className="w-4 h-4 ml-2 text-slate-400" weight="bold" />
@@ -137,21 +137,21 @@ export default function Hero({ onOpenConsultation, onNavigateToCalculator }: Her
 
                   {/* 3 Grid features mock */}
                   <div className="grid grid-cols-3 gap-3">
-                    <div className="bg-white p-2.5 rounded-md border border-zinc-200 text-center space-y-1 hover:border-zinc-400 transition-all">
+                    <div className="bg-white p-2.5 rounded-md border border-zinc-200 text-center space-y-1 hover:border-zinc-400 transition-all active-press-sm cursor-pointer">
                       <div className="flex justify-center">
                         <Lightning weight="fill" className="w-5 h-5 text-zinc-900" />
                       </div>
                       <p className="text-[10px] font-bold text-slate-800">Cepat</p>
                       <p className="text-[8px] text-slate-400">PageSpeed 99+</p>
                     </div>
-                    <div className="bg-white p-2.5 rounded-md border border-zinc-200 text-center space-y-1 hover:border-zinc-400 transition-all">
+                    <div className="bg-white p-2.5 rounded-md border border-zinc-200 text-center space-y-1 hover:border-zinc-400 transition-all active-press-sm cursor-pointer">
                       <div className="flex justify-center">
                         <ShieldCheck className="w-5 h-5 text-zinc-900" />
                       </div>
                       <p className="text-[10px] font-bold text-slate-800">SEO Oke</p>
                       <p className="text-[8px] text-slate-400">Rapi di Google</p>
                     </div>
-                    <div className="bg-white p-2.5 rounded-md border border-zinc-200 text-center space-y-1 hover:border-zinc-400 transition-all">
+                    <div className="bg-white p-2.5 rounded-md border border-zinc-200 text-center space-y-1 hover:border-zinc-400 transition-all active-press-sm cursor-pointer">
                       <div className="flex justify-center">
                         <DeviceMobile className="w-5 h-5 text-zinc-900" />
                       </div>
@@ -161,7 +161,7 @@ export default function Hero({ onOpenConsultation, onNavigateToCalculator }: Her
                   </div>
 
                   {/* Live WhatsApp floating widget mockup */}
-                  <div className="bg-zinc-50 border border-zinc-200 p-3 rounded-md flex items-center justify-between">
+                  <div className="bg-zinc-50 border border-zinc-200 p-3 rounded-md flex items-center justify-between hover:border-zinc-405 transition-all active-press-lg cursor-pointer">
                     <div className="flex items-center space-x-2">
                       <div className="w-8 h-8 rounded-md bg-black flex items-center justify-center text-white text-xs font-bold">
                         WA
@@ -179,7 +179,7 @@ export default function Hero({ onOpenConsultation, onNavigateToCalculator }: Her
               </div>
 
               {/* Floating Widget 1 - No shadows */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-3.5 rounded-md border border-zinc-200 flex items-center space-x-3 max-w-[200px]">
+              <div className="absolute -bottom-6 -left-6 bg-white p-3.5 rounded-md border border-zinc-200 flex items-center space-x-3 max-w-[200px] hover:border-zinc-400 transition-all active-press-lg cursor-pointer">
                 <div className="p-2 bg-zinc-150 rounded-md text-black">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -190,7 +190,7 @@ export default function Hero({ onOpenConsultation, onNavigateToCalculator }: Her
               </div>
 
               {/* Floating Widget 2 (Speed indicators) - No shadows */}
-              <div className="absolute -top-6 -right-6 bg-white p-3.5 rounded-md border border-zinc-200 flex items-center space-x-3 max-w-[150px]">
+              <div className="absolute -top-6 -right-6 bg-white p-3.5 rounded-md border border-zinc-200 flex items-center space-x-3 max-w-[150px] hover:border-zinc-400 transition-all active-press-lg cursor-pointer">
                 <div className="p-2 bg-zinc-150 rounded-md text-black">
                   <Lightning className="w-5 h-5" />
                 </div>
